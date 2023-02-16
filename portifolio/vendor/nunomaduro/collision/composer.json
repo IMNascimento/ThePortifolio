@@ -1,0 +1,81 @@
+{
+    "name": "nunomaduro/collision",
+    "description": "Cli error handling for console/command-line PHP applications.",
+    "keywords": ["console", "command-line", "php", "cli", "error", "handling", "laravel-zero", "laravel", "artisan", "symfony"],
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/nunomaduro/collision/issues",
+        "source": "https://github.com/nunomaduro/collision"
+    },
+    "authors": [
+        {
+            "name": "Nuno Maduro",
+            "email": "enunomaduro@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.1.0",
+        "filp/whoops": "^2.14.6",
+        "nunomaduro/termwind": "^1.15.1",
+        "symfony/console": "^6.2.5"
+    },
+    "require-dev": {
+        "laravel/framework": "^10.0.0",
+        "laravel/pint": "^1.5.0",
+        "laravel/sail": "^1.20.2",
+        "laravel/sanctum": "^3.2.1",
+        "laravel/tinker": "^2.8.0",
+        "nunomaduro/larastan": "^2.4.0",
+        "orchestra/testbench-core": "^8.0.0",
+        "pestphp/pest": "^2.0.0",
+        "phpunit/phpunit": "^10.0.7",
+        "spatie/laravel-ignition": "^2.0.0"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\Printer\\": "tests/Printer",
+            "Tests\\Unit\\": "tests/Unit",
+            "Tests\\FakeProgram\\": "tests/FakeProgram",
+            "Tests\\": "tests/LaravelApp/tests",
+            "App\\": "tests/LaravelApp/app/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "NunoMaduro\\Collision\\": "src/"
+        },
+        "files": [
+            "./src/Adapters/Phpunit/Autoload.php"
+        ]
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "lint": "pint -v",
+        "test:lint": "pint --test -v",
+        "test:types": "phpstan analyse --ansi",
+        "test:unit": [
+            "@putenv XDEBUG_MODE=coverage",
+            "pest --colors=always -v"
+        ],
+        "test": [
+            "@test:lint",
+            "@test:types",
+            "@test:unit"
+        ]
+    }
+}
