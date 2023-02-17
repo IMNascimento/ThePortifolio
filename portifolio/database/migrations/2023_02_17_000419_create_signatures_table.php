@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('signatures', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('type');
+            $table->string('description');
+            $table->char('payament_type', 3);
+            $table->float('price', 8, 2);
+            $table->string('icon');
         });
     }
 
