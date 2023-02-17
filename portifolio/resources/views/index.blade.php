@@ -4,7 +4,7 @@
         <!-- Page Navbar -->
         <nav class="custom-navbar" data-spy="affix" data-offset-top="20">
             <div class="container">
-                <a class="logo" href="#">Meyawo</a>
+                <a class="logo" href="#">Nascimento</a>
                 <ul class="nav">
                     <li class="item">
                         <a class="link" href="#home">Home</a>
@@ -57,7 +57,7 @@
                 <!-- about wrapper -->
                 <div class="about">
                     <div class="about-img-holder">
-                        <img src="assets/imgs/man.png" class="about-img"
+                        <img src="{{Storage::url('imgs/man.png')}}" class="about-img"
                             alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
                     </div>
                     <div class="about-caption">
@@ -88,7 +88,7 @@
                     <div class="col-md-6 col-lg-3">
                         <div class="service-card">
                             <div class="body">
-                                <img src="assets/imgs/pencil-case.svg"
+                                <img src="{{Storage::url('imgs/pencil-case.svg')}}"
                                     alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page"
                                     class="icon">
                                 <h6 class="title">Adipisicing</h6>
@@ -100,7 +100,7 @@
                     <div class="col-md-6 col-lg-3">
                         <div class="service-card">
                             <div class="body">
-                                <img src="assets/imgs/responsive.svg"
+                                <img src="{{Storage::url('imgs/responsive.svg')}}"
                                     alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page"
                                     class="icon">
                                 <h6 class="title">Sapiente</h6>
@@ -112,7 +112,7 @@
                     <div class="col-md-6 col-lg-3">
                         <div class="service-card">
                             <div class="body">
-                                <img src="assets/imgs/toolbox.svg"
+                                <img src="{{Storage::url('imgs/toolbox.svg')}}"
                                     alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page"
                                     class="icon">
                                 <h6 class="title">Placeat</h6>
@@ -124,7 +124,7 @@
                     <div class="col-md-6 col-lg-3">
                         <div class="service-card">
                             <div class="body">
-                                <img src="assets/imgs/analytics.svg"
+                                <img src="{{Storage::url('imgs/analytics.svg')}}"
                                     alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page"
                                     class="icon">
                                 <h6 class="title">Iusto</h6>
@@ -146,7 +146,7 @@
                 <div class="row">
                     <div class="col-md-4">
                         <a href="#" class="portfolio-card">
-                            <img src="assets/imgs/folio-1.jpg" class="portfolio-card-img"
+                            <img src="{{Storage::url('imgs/folio-1.jpg')}}" class="portfolio-card-img"
                                 alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
                             <span class="portfolio-card-overlay">
                                 <span class="portfolio-card-caption">
@@ -158,7 +158,7 @@
                     </div>
                     <div class="col-md-4">
                         <a href="#" class="portfolio-card">
-                            <img class="portfolio-card-img" src="assets/imgs/folio-2.jpg" class="img-responsive rounded"
+                            <img class="portfolio-card-img" src="{{Storage::url('imgs/folio-2.jpg')}}" class="img-responsive rounded"
                                 alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
                             <span class="portfolio-card-overlay">
                                 <span class="portfolio-card-caption">
@@ -170,7 +170,7 @@
                     </div>
                     <div class="col-md-4">
                         <a href="#" class="portfolio-card">
-                            <img class="portfolio-card-img" src="assets/imgs/folio-3.jpg" class="img-responsive rounded"
+                            <img class="portfolio-card-img" src="{{Storage::url('imgs/folio-3.jpg')}}" class="img-responsive rounded"
                                 alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
                             <span class="portfolio-card-overlay">
                                 <span class="portfolio-card-caption">
@@ -193,7 +193,7 @@
                 <div class="pricing-wrapper">
                     <div class="pricing-card">
                         <div class="pricing-card-header">
-                            <img class="pricing-card-icon" src="assets/imgs/scooter.svg"
+                            <img class="pricing-card-icon" src="{{Storage::url('imgs/scooter.svg')}}"
                                 alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
                         </div>
                         <div class="pricing-card-body">
@@ -215,7 +215,7 @@
                     </div>
                     <div class="pricing-card">
                         <div class="pricing-card-header">
-                            <img class="pricing-card-icon" src="assets/imgs/shipped.svg"
+                            <img class="pricing-card-icon" src="{{Storage::url('imgs/shipped.svg')}}"
                                 alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
                         </div>
                         <div class="pricing-card-body">
@@ -237,7 +237,7 @@
                     </div>
                     <div class="pricing-card">
                         <div class="pricing-card-header">
-                            <img class="pricing-card-icon" src="assets/imgs/startup.svg"
+                            <img class="pricing-card-icon" src="{{Storage::url('imgs/startup.svg')}}"
                                 alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
                         </div>
                         <div class="pricing-card-body">
@@ -290,7 +290,7 @@
                     <div class="col-md-6">
                         <div class="testimonial-card">
                             <div class="testimonial-card-img-holder">
-                                <img src="assets/imgs/avatar2.jpg" class="testimonial-card-img"
+                                <img src="{{Storage::url('imgs/avatar2.jpg')}}" class="testimonial-card-img"
                                     alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
                             </div>
                             <div class="testimonial-card-body">
@@ -304,7 +304,7 @@
                     <div class="col-md-6">
                         <div class="testimonial-card">
                             <div class="testimonial-card-img-holder">
-                                <img src="assets/imgs/avatar3.jpg" class="testimonial-card-img"
+                                <img src="{{Storage::url('imgs/avatar3.jpg')}}" class="testimonial-card-img"
                                     alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
                             </div>
                             <div class="testimonial-card-body">
@@ -318,96 +318,6 @@
                 </div>
             </div> <!-- end of container -->
         </section> <!-- end of testimonial section -->
-    
-        <!-- blog section -->
-        <section class="section" id="blog">
-            <!-- container -->
-            <div class="container text-center">
-                <p class="section-subtitle">Recent Posts?</p>
-                <h6 class="section-title mb-6">Blog</h6>
-                <!-- blog-wrapper -->
-                <div class="blog-card">
-                    <div class="blog-card-header">
-                        <img src="assets/imgs/img-1.jpg" class="blog-card-img"
-                            alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
-                    </div>
-                    <div class="blog-card-body">
-                        <h5 class="blog-card-title">Consectetur adipisicing elit</h6>
-    
-                            <p class="blog-card-caption">
-                                <a href="#">By: Admin</a>
-                                <a href="#"><i class="ti-heart text-danger"></i> 234</a>
-                                <a href="#"><i class="ti-comment"></i> 123</a>
-                            </p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet nesciunt qui sit velit
-                                delectus voluptates, repellat ipsum culpa id deleniti. Rerum debitis facilis accusantium
-                                neque numquam mollitia modi quasi distinctio.</p>
-    
-                            <p><b>Necessitatibus nihil impedit! Ex nisi eveniet, dolor aliquid consequuntur repudiandae.</b>
-                            </p>
-                            <p>Magnam in repellat enim harum omnis aperiam! Explicabo illo, commodi, dolor blanditiis
-                                cupiditate harum nisi vero accusamus laudantium voluptatibus dolores quae obcaecati.</p>
-    
-                            <a href="#" class="blog-card-link">Read more <i class="ti-angle-double-right"></i></a>
-                    </div>
-                </div><!-- end of blog wrapper -->
-    
-                <!-- blog-wrapper -->
-                <div class="blog-card">
-                    <div class="blog-card-header">
-                        <img src="assets/imgs/img-2.jpg" class="blog-card-img"
-                            alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
-                    </div>
-                    <div class="blog-card-body">
-                        <h5 class="blog-card-title">Explicabo illo</h6>
-    
-                            <p class="blog-card-caption">
-                                <a href="#">By: Admin</a>
-                                <a href="#"><i class="ti-heart text-danger"></i> 456</a>
-                                <a href="#"><i class="ti-comment"></i> 264</a>
-                            </p>
-    
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit excepturi laborum enim,
-                                vitae ipsam atque eum, ad iusto consequuntur voluptas, esse doloribus. Perferendis porro
-                                quisquam vitae exercitationem aliquid, minus eos laborum repudiandae, cumque debitis iusto
-                                omnis praesentium? Laborum placeat sit adipisci illum tempore maxime, esse qui quae?
-                                Molestias excepturi corporis similique doloribus. Esse vitae earum architecto nulla non
-                                dolores illum at perspiciatis quod, et deleniti cupiditate reiciendis harum facere, delectus
-                                eum commodi soluta distinctio sit repudiandae possimus sunt. Ipsum, rem.</p>
-    
-                            <a href="#" class="blog-card-link">Read more <i class="ti-angle-double-right"></i></a>
-                    </div>
-                </div><!-- end of blog wrapper -->
-    
-            </div><!-- end of container -->
-        </section><!-- end of blog section -->
-    
-        <!-- contact section -->
-        <section class="section" id="contact">
-            <div class="container text-center">
-                <p class="section-subtitle">How can you communicate?</p>
-                <h6 class="section-title mb-5">Contact Me</h6>
-                <!-- contact form -->
-                <form action="" class="contact-form col-md-10 col-lg-8 m-auto">
-                    <div class="form-row">
-                        <div class="form-group col-sm-6">
-                            <input type="text" size="50" class="form-control" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group col-sm-6">
-                            <input type="email" class="form-control" placeholder="Enter Email" requried>
-                        </div>
-                        <div class="form-group col-sm-12">
-                            <textarea name="comment" id="comment" rows="6" class="form-control"
-                                placeholder="Write Something"></textarea>
-                        </div>
-                        <div class="form-group col-sm-12 mt-3">
-                            <input type="submit" value="Send Message" class="btn btn-outline-primary rounded">
-                        </div>
-                    </div>
-                </form><!-- end of contact form -->
-            </div><!-- end of container -->
-        </section><!-- end of contact section -->
-    
         <!-- footer -->
         <div class="container">
             <footer class="footer">
