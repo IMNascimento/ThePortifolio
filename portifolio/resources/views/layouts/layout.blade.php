@@ -10,7 +10,7 @@
     <!-- Bootstrap + Meyawo main styles -->
     <link rel="stylesheet" href="{{asset('assets/css/meyawo.css')}}">
 </head>
-<body>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
     @yield('content')
 
     <!-- core  -->
