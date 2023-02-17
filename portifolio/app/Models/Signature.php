@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Signature extends Model
 {
     use HasFactory;
+
+    protected $table = 'signatures';
+    protected $primaryKey = 'id';
 }
