@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('type');
             $table->string('url');
             $table->string('patch');
+            $table->timestamps();
         });
     }
 

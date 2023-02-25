@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('report');
             $table->string('patch');
             $table->bigInteger('portfolios_id');
+            $table->timestamps();
         });
     }
 

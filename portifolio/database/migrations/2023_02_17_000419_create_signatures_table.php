@@ -18,6 +18,7 @@ return new class extends Migration
             $table->char('payament_type', 3);
             $table->float('price', 8, 2);
             $table->string('icon');
+            $table->timestamps();
         });
     }
 
