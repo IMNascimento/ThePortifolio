@@ -22,20 +22,20 @@ class AboutController extends Controller
 
         $db = new About;
         $db->description = $request->description;
-        $db->patch = $nameStore;
+        $db->patch = 'senai/'.$nameStore;
         $db->save();
 
-        return view('dashboard',['msg'=>"Item cadastrado com sucesso !"]);
+        return view('dashboard',['x'=>"", 'msg'=>"Item cadastrado com sucesso !"]);
     }
 
     public function getAboutAll()
     {
-        return About::all();
+        return view('dashboard',['x'=>"list",'list'=> About::all()]);
     }
 
     public function getAbout(Request $request)
     {
-        return About::find($request->id);
+        return view('dashboard', ['x'=>"editar", 'list'=> About::find($request->id)]);
     }
 
     public function updateAbout(Request $request)
@@ -46,6 +46,7 @@ class AboutController extends Controller
             $extension = $request->file('imagem')->getClientOriginalExtension();
             $nameStore = $fileName."_". time() . "." . $extension;
             $path = $request->file('imagem')->storeAs('public/senai', $nameStore);
+            $nameStore = 'senai/'. $nameStore;
         }else {
             $nameStore = $request->patch;
         }
@@ -55,12 +56,14 @@ class AboutController extends Controller
         $db->description = $request->description;
         $db->patch = $nameStore;
         $db->save();
+        return $this->getAboutAll();
     }
 
     public function deleteAbout(Request $request)
     {
         $db = About::find($request->id);
-        $db->delete();  
+        $db->delete(); 
+        return $this->getAboutAll();
     }
 
     public function search(Request $request)

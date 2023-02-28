@@ -14,16 +14,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/teste', function () {
+Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('dashboard',['x'=>'teste']);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -33,8 +29,10 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::post('/add/about', [AboutController::class, 'create'])->middleware(['auth', 'verified']);
-
-
+Route::get('/list/about',[AboutController::class, 'getAboutAll'])->middleware(['auth', 'verified']);
+Route::post('/editar/about', [AboutController::class, 'getAbout'])->middleware(['auth', 'verified']);
+Route::post('/update/about', [AboutController::class, 'updateAbout'])->middleware(['auth', 'verified']);
+Route::post('/deletar/about', [AboutController::class, 'deleteAbout'])->middleware(['auth', 'verified']);
 
 
 require __DIR__.'/auth.php';

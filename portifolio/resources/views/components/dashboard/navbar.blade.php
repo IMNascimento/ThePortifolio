@@ -15,7 +15,7 @@
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalAbout">ADD</a></li>
-              <li><a class="dropdown-item" href="#">LIST</a></li>
+              <li><a class="dropdown-item" href="/list/about">LIST</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">

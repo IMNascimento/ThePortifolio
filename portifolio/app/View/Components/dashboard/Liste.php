@@ -11,9 +11,11 @@ class Liste extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public $result;
+
+    public function __construct($result)
     {
-        //
+        $this->result = $result;
     }
 
     /**
