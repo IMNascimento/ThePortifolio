@@ -66,10 +66,11 @@ class AboutController extends Controller
         return $this->getAboutAll();
     }
 
-    public function search(Request $request)
+    public function searchAbout(Request $request)
     {
-        About::where('description', 'LIKE', '%'.$request->search.'%')
+        $db = About::where('description', 'LIKE', '%'.$request->search.'%')
                ->get();
+        return view('dashboard',['x'=>"list",'list'=> $db]);
     }
 
 
