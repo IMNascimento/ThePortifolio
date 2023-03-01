@@ -30,12 +30,12 @@ class AboutController extends Controller
 
     public function getAboutAll()
     {
-        return view('dashboard',['x'=>"list",'list'=> About::all()]);
+        return view('dashboard',['x'=>"list",'type'=>"about", 'list'=> About::all()]);
     }
 
     public function getAbout(Request $request)
     {
-        return view('dashboard', ['x'=>"editar", 'list'=> About::find($request->id)]);
+        return view('editAbout', ['list'=> About::find($request->id)]);
     }
 
     public function updateAbout(Request $request)

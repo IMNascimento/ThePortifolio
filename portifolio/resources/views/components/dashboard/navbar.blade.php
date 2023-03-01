@@ -24,7 +24,7 @@
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalService">ADD</a></li>
-              <li><a class="dropdown-item" href="#">LIST</a></li>
+              <li><a class="dropdown-item" href="/list/service">LIST</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">
@@ -33,7 +33,7 @@
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalPortfolio">ADD</a></li>
-              <li><a class="dropdown-item" href="#">LIST</a></li>
+              <li><a class="dropdown-item" href="/list/portifolio">LIST</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">
@@ -42,7 +42,7 @@
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalTestimonials">ADD</a></li>
-              <li><a class="dropdown-item" href="#">LIST</a></li>
+              <li><a class="dropdown-item" href="/list/testimonial">LIST</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">
@@ -51,7 +51,7 @@
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalSignature">ADD</a></li>
-              <li><a class="dropdown-item" href="#">LIST</a></li>
+              <li><a class="dropdown-item" href="/list/signature">LIST</a></li>
             </ul>
           </li>
       </ul>
