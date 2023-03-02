@@ -70,7 +70,7 @@ class AboutController extends Controller
     {
         $db = About::where('description', 'LIKE', '%'.$request->search.'%')
                ->get();
-        return view('dashboard',['x'=>"list",'list'=> $db]);
+        return view('dashboard',['x'=>"list",'type'=>'about','list'=> $db]);
     }
 
 

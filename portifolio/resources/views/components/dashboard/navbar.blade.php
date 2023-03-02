@@ -33,7 +33,7 @@
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalPortfolio">ADD</a></li>
-              <li><a class="dropdown-item" href="/list/portifolio">LIST</a></li>
+              <li><a class="dropdown-item" href="/list/portfolio">LIST</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">

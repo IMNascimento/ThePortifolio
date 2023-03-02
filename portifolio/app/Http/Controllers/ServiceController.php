@@ -72,7 +72,7 @@ class ServiceController extends Controller
     {
         $db = Service::where('title', 'LIKE', '%'.$request->search.'%')
                ->get();
-        return view('dashboard',['x'=>"list",'list'=> $db]);
+        return view('dashboard',['x'=>"list",'type'=>'service','list'=> $db]);
     }
 
 }

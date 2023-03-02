@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PortfolioController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,7 +21,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard',['x'=>'teste']);
+    return view('dashboard',['x'=>'']);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -43,5 +44,12 @@ Route::post('/editar/service', [ServiceController::class, 'getService'])->middle
 Route::post('/update/service', [ServiceController::class, 'updateService'])->middleware(['auth', 'verified']);
 Route::post('/deletar/service', [ServiceController::class, 'deleteService'])->middleware(['auth', 'verified']);
 Route::post('/search/service',[ServiceController::class, 'searchService'])->middleware(['auth', 'verified']);
+
+Route::post('/add/portfolio', [PortfolioController::class, 'create'])->middleware(['auth', 'verified']);
+Route::get('/list/portfolio',[PortfolioController::class, 'getPortfolioAll'])->middleware(['auth', 'verified']);
+Route::post('/editar/portfolio', [PortfolioController::class, 'getPortfolio'])->middleware(['auth', 'verified']);
+Route::post('/update/portfolio', [PortfolioController::class, 'updatePortfolio'])->middleware(['auth', 'verified']);
+Route::post('/deletar/portfolio', [PortfolioController::class, 'deletePortfolio'])->middleware(['auth', 'verified']);
+Route::post('/search/portfolio',[PortfolioController::class, 'searchPortfolio'])->middleware(['auth', 'verified']);
 
 require __DIR__.'/auth.php';
