@@ -20,7 +20,7 @@
 
 <x-dashboard.about-modal/>
 <x-dashboard.service-modal/>  
-<x-dashboard.testimonials-modal/>
+<x-dashboard.testimonials-modal :portfolio="$port"/>
 <x-dashboard.signature-modal/>
 <x-dashboard.portfolio-modal/>
 

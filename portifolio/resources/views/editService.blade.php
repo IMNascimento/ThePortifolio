@@ -23,7 +23,7 @@
               <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
             </div>
             <div class="custom-file">
-              <input type="hidden" name="patch" value="{{$list->patch}}">
+              <input type="hidden" name="patch" value="{{$list->icon}}">
               <input type="file" class="custom-file-input" id="inputGroupFile01" name="imagem" aria-describedby="inputGroupFileAddon01">
               <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
             </div>

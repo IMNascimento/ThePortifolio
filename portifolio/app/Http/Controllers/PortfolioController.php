@@ -27,12 +27,14 @@ class PortfolioController extends Controller
         $d->type = $request->type;
         $d->save();
 
-        return view('dashboard', ['x'=>'','msg'=>"portifolio cadastrado com sucesso!"]);
+        return view('dashboard', ['x'=>'','port'=>self::getPort(),'msg'=>"portifolio cadastrado com sucesso!"]);
     }
-
+    static public function getPort(){
+        return Portfolio::all();
+    }
     public function getPortfolioAll(){
         $x = Portfolio::all();
-        return view('dashboard',['x'=>'list', 'type'=>'portfolio', 'list'=>$x]);
+        return view('dashboard',['x'=>'list','port'=>$x, 'type'=>'portfolio', 'list'=>$x]);
     }
 
     public function getPortfolio(Request $request){
@@ -71,6 +73,6 @@ class PortfolioController extends Controller
 
     public function searchPortfolio(Request $request){
         $xc = Portfolio::where('title', 'LIKE', '%'.$request->search.'%')->get();
-        return view('dashboard', ['x'=>'list', 'type'=>'portfolio', 'list'=> $xc]);
+        return view('dashboard', ['x'=>'list','port'=>self::getPort(), 'type'=>'portfolio', 'list'=> $xc]);
     }
 }

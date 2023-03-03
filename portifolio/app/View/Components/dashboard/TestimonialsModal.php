@@ -11,9 +11,11 @@ class TestimonialsModal extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public $portfolio;
+    public function __construct($portfolio)
     {
         //
+        $this->portfolio = $portfolio;
     }
 
     /**

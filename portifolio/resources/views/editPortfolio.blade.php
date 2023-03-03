@@ -12,7 +12,7 @@
       </div>
       <div class="col-md-8">
         <div class="card-body">
-          <h5 class="card-title">About</h5>
+          <h5 class="card-title">Portfolio</h5>
           <form action="/update/portfolio" method="post" enctype="multipart/form-data">
             @csrf
             <input type="hidden" name="id" value="{{$list->id}}">

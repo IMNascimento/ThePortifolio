@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Service;
+use App\Http\Controllers\PortfolioController;
 
 class ServiceController extends Controller
 {
@@ -26,12 +27,12 @@ class ServiceController extends Controller
         $db->icon = 'senai/icon/'.$nameStore;
         $db->save();
 
-        return view('dashboard',['x'=>"", 'msg'=>"Serviço cadastrado com sucesso !"]);
+        return view('dashboard',['x'=>"",'port'=>PortfolioController::getPort(), 'msg'=>"Serviço cadastrado com sucesso !"]);
     }
 
     public function getServiceAll()
     {
-        return view('dashboard',['x'=>"list",'type'=>"service", 'list'=> Service::all()]);
+        return view('dashboard',['x'=>"list",'port'=>PortfolioController::getPort(), 'type'=>"service", 'list'=> Service::all()]);
     }
 
     public function getService(Request $request)
@@ -72,7 +73,7 @@ class ServiceController extends Controller
     {
         $db = Service::where('title', 'LIKE', '%'.$request->search.'%')
                ->get();
-        return view('dashboard',['x'=>"list",'type'=>'service','list'=> $db]);
+        return view('dashboard',['x'=>"list",'port'=>PortfolioController::getPort(),'type'=>'service','list'=> $db]);
     }
 
 }

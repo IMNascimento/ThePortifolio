@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\About;
+use App\Http\Controllers\PortfolioController;
 
 class AboutController extends Controller
 {
@@ -25,12 +26,12 @@ class AboutController extends Controller
         $db->patch = 'senai/'.$nameStore;
         $db->save();
 
-        return view('dashboard',['x'=>"", 'msg'=>"Item cadastrado com sucesso !"]);
+        return view('dashboard',['x'=>"",'port'=>PortfolioController::getPort(), 'msg'=>"Item cadastrado com sucesso !"]);
     }
 
     public function getAboutAll()
     {
-        return view('dashboard',['x'=>"list",'type'=>"about", 'list'=> About::all()]);
+        return view('dashboard',['x'=>"list",'port'=>PortfolioController::getPort(),'type'=>"about", 'list'=> About::all()]);
     }
 
     public function getAbout(Request $request)
@@ -70,7 +71,7 @@ class AboutController extends Controller
     {
         $db = About::where('description', 'LIKE', '%'.$request->search.'%')
                ->get();
-        return view('dashboard',['x'=>"list",'type'=>'about','list'=> $db]);
+        return view('dashboard',['x'=>"list",'port'=>PortfolioController::getPort(), 'type'=>'about','list'=> $db]);
     }
 
 
