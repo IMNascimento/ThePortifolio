@@ -37,29 +37,13 @@ Route::middleware('auth')->group(function () {
     Route::resource('service', ServiceController::class);
     Route::post('/search/service',[ServiceController::class, 'searchService']);
     Route::resource('testimonials', TestimonialsController::class);
+    Route::post('/search/testimonials',[TestimonialsController::class, 'searchTestimonials']);
     Route::resource('portfolio', PortfolioController::class);
     Route::post('/search/portfolio',[PortfolioController::class, 'searchPortfolio']);
     Route::resource('signature', SignatureController::class);
+    Route::post('/search/signature',[SignatureController::class, 'searchSignature']);
     
     
 });
-
-
-
-//testemonials
-Route::post('/add/testimonials', [TestimonialsController::class, 'create'])->middleware(['auth', 'verified']);
-Route::get('/list/testimonials',[TestimonialsController::class, 'getTestimonialsAll'])->middleware(['auth', 'verified']);
-Route::post('/editar/testimonials', [TestimonialsController::class, 'getTestimonials'])->middleware(['auth', 'verified']);
-Route::post('/update/testimonials', [TestimonialsController::class, 'updateTestimonials'])->middleware(['auth', 'verified']);
-Route::post('/deletar/testimonials', [TestimonialsController::class, 'deleteTestimonials'])->middleware(['auth', 'verified']);
-Route::post('/search/testimonials',[TestimonialsController::class, 'searchTestimonials'])->middleware(['auth', 'verified']);
-// Signature
-Route::post('/add/signature', [SignatureController::class, 'create'])->middleware(['auth', 'verified']);
-Route::get('/list/signature',[SignatureController::class, 'getSignatureAll'])->middleware(['auth', 'verified']);
-Route::post('/editar/signature', [SignatureController::class, 'getSignature'])->middleware(['auth', 'verified']);
-Route::post('/update/signature', [SignatureController::class, 'updateSignature'])->middleware(['auth', 'verified']);
-Route::post('/deletar/signature', [SignatureController::class, 'deleteSignature'])->middleware(['auth', 'verified']);
-Route::post('/search/signature',[SignatureController::class, 'searchSignature'])->middleware(['auth', 'verified']);
-
 
 require __DIR__.'/auth.php';
