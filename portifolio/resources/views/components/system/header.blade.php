@@ -4,9 +4,9 @@
             <div class="header-content container">
                 <h1 class="header-title">
                     <span class="up">HI!</span>
-                    <span class="down">I am John Doe</span>
+                    <span class="down">I am Nascimento</span>
                 </h1>
-                <p class="header-subtitle">FRONTEND WEB DESIGNER</p>
+                <p class="header-subtitle">Developer PHP and Python</p>
     
                 <button class="btn btn-primary">Visit My Works</button>
             </div>

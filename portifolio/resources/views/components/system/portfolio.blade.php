@@ -5,42 +5,19 @@
                 <h6 class="section-title mb-6">Portfolio</h6>
                 <!-- row -->
                 <div class="row">
-                    <div class="col-md-4">
-                        <a href="#" class="portfolio-card">
-                            <img src="{{Storage::url('imgs/folio-1.jpg')}}" class="portfolio-card-img"
-                                alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
-                            <span class="portfolio-card-overlay">
-                                <span class="portfolio-card-caption">
-                                    <h4>Web Designing</h5>
-                                        <p class="font-weight-normal">Category: Web Templates</p>
+                    @foreach ($dat as $k)
+                        <div class="col-md-4">
+                            <a href="{{$k->url}}" class="portfolio-card">
+                                <img src="{{Storage::url($k->patch)}}" class="portfolio-card-img" alt="mp">
+                                <span class="portfolio-card-overlay">
+                                    <span class="portfolio-card-caption">
+                                        <h4>{{$k->title}}</h5>
+                                            <p class="font-weight-normal">Categoria: {{$k->type}}</p>
+                                    </span>
                                 </span>
-                            </span>
-                        </a>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="#" class="portfolio-card">
-                            <img class="portfolio-card-img" src="{{Storage::url('imgs/folio-2.jpg')}}" class="img-responsive rounded"
-                                alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
-                            <span class="portfolio-card-overlay">
-                                <span class="portfolio-card-caption">
-                                    <h4>Web Designing</h5>
-                                        <p class="font-weight-normal">Category: Web Templates</p>
-                                </span>
-                            </span>
-                        </a>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="#" class="portfolio-card">
-                            <img class="portfolio-card-img" src="{{Storage::url('imgs/folio-3.jpg')}}" class="img-responsive rounded"
-                                alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
-                            <span class="portfolio-card-overlay">
-                                <span class="portfolio-card-caption">
-                                    <h4>Web Designing</h5>
-                                        <p class="font-weight-normal">Category: Web Templates</p>
-                                </span>
-                            </span>
-                        </a>
-                    </div>
+                            </a>
+                        </div>
+                    @endforeach
                 </div><!-- end of row -->
             </div><!-- end of container -->
         </section> <!-- end of portfolio section -->

@@ -107,4 +107,10 @@ class PortfolioController extends Controller
         $xc = Portfolio::where('title', 'LIKE', '%'.$request->search.'%')->get();
         return view('dashboard', ['x'=>'list','port'=>self::getPort(), 'type'=>'portfolio', 'list'=> $xc]);
     }
+
+    static function dinamicData()
+    {
+        return Portfolio::all();
+    }
+
 }

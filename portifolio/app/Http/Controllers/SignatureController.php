@@ -108,4 +108,8 @@ class SignatureController extends Controller
                ->get();
         return view('dashboard',['x'=>"list",'port'=>PortfolioController::getPort(),'type'=>'signature','list'=> $db]);
     }
+    static function dinamicData()
+    {
+        return Signature::all();
+    }
 }

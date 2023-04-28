@@ -103,4 +103,8 @@ class ServiceController extends Controller
                ->get();
         return view('dashboard',['x'=>"list",'port'=>PortfolioController::getPort(),'type'=>'service','list'=> $db]);
     }
+    static function dinamicData()
+    {
+        return Service::all();
+    }
 }

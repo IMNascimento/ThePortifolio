@@ -2,14 +2,16 @@
 @section('title', 'Igor')
 @section('content')
 
+
+
 <x-system.navbar/>
 <x-system.header/>
-<x-system.about/>
-<x-system.service/>
-<x-system.portfolio/>
-<x-system.pricing/>
-<x-system.contact/>
-<x-system.testimonial/>
+<x-system.about :dat="$about" />
+<x-system.service :dat="$service"/>
+<x-system.portfolio :dat="$portfolio"/>
+<x-system.pricing :dat="$signature"/>
+<x-system.contact :dat="$contact" />
+<x-system.testimonial :dat="$testimonial"/>
 <x-system.footer/>
    
 @endsection

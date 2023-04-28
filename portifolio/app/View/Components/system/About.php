@@ -11,9 +11,10 @@ class About extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public $dat;
+    public function __construct($dat)
     {
-        //
+        $this->dat = $dat;
     }
 
     /**

@@ -30,20 +30,24 @@ class AboutController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request->hasFile('imagem')) {
-            $filenameWithExt = $request->file('imagem')->getClientOriginalName();
-            $fileName = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            $extension = $request->file('imagem')->getClientOriginalExtension();
-            $nameStore = $fileName."_". time() . "." . $extension;
-            $path = $request->file('imagem')->storeAs('public/senai', $nameStore);
-        }else {
-            $nameStore = "noImagem.png";
+        if (count(About::all()) > 0) {
+            return $this->show('Já tem item cadastrado você não pode cadastrar mais!');
+        }else{
+            if ($request->hasFile('imagem')) {
+                $filenameWithExt = $request->file('imagem')->getClientOriginalName();
+                $fileName = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+                $extension = $request->file('imagem')->getClientOriginalExtension();
+                $nameStore = $fileName."_". time() . "." . $extension;
+                $path = $request->file('imagem')->storeAs('public/senai', $nameStore);
+            }else {
+                $nameStore = "noImagem.png";
+            }
+            $db = new About;
+            $db->description = $request->description;
+            $db->patch = 'senai/'.$nameStore;
+            $db->save();
+            return $this->show('Item cadastrado com sucesso !');
         }
-        $db = new About;
-        $db->description = $request->description;
-        $db->patch = 'senai/'.$nameStore;
-        $db->save();
-        return $this->show('Item cadastrado com sucesso !');
     }
 
     /**
@@ -99,5 +103,10 @@ class AboutController extends Controller
         $db = About::where('description', 'LIKE', '%'.$request->search.'%')
                ->get();
         return view('dashboard',['x'=>"list",'port'=>PortfolioController::getPort(), 'type'=>'about','list'=> $db]);
+    }
+
+    static function dinamicData()
+    {
+        return About::all();
     }
 }

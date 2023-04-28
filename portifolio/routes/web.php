@@ -21,7 +21,15 @@ use PhpParser\Node\Stmt\Foreach_;
 |
 */
 Route::get('/', function () {
-    return view('index');
+    return view('index',[
+        'about'=> AboutController::dinamicData(),
+        'service'=> ServiceController::dinamicData(),
+        'portfolio'=> PortfolioController::dinamicData(),
+        'testimonial'=> TestimonialsController::dinamicData(),
+        'signature'=> SignatureController::dinamicData(),
+        'pricing'=> ServiceController::dinamicData(),
+        'contact'=> ""
+    ]);
 });
 
 Route::get('/dashboard', function () {
@@ -42,8 +50,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/search/portfolio',[PortfolioController::class, 'searchPortfolio']);
     Route::resource('signature', SignatureController::class);
     Route::post('/search/signature',[SignatureController::class, 'searchSignature']);
-    
-    
 });
 
 require __DIR__.'/auth.php';

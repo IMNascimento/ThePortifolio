@@ -15,9 +15,6 @@
 @else
 @endif
 
-
-
-
 <x-dashboard.about-modal/>
 <x-dashboard.service-modal/>  
 <x-dashboard.testimonials-modal :portfolio="$port"/>

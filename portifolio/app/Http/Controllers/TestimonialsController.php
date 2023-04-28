@@ -105,4 +105,8 @@ class TestimonialsController extends Controller
                ->get();
         return view('dashboard',['x'=>"list",'type'=>'testimonials','list'=> $db]);
     }
+    static function dinamicData()
+    {
+        return Testimonials::all();
+    }
 }
