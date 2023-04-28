@@ -9,7 +9,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="/add/service" method="post" enctype="multipart/form-data">
+          <form action="/service/" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Titulo</label>

@@ -2,79 +2,66 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Testimonials;
-use App\Http\Controllers\PortfolioController;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class TestimonialsController extends Controller
 {
-  public function create(Request $request)
+    /**
+     * Display a listing of the resource.
+     */
+    public function index(): Response
     {
-        if ($request->hasFile('imagem')) {
-            $filenameWithExt = $request->file('imagem')->getClientOriginalName();
-            $fileName = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            $extension = $request->file('imagem')->getClientOriginalExtension();
-            $nameStore = $fileName."_". time() . "." . $extension;
-            $path = $request->file('imagem')->storeAs('public/senai', $nameStore);
-        }else {
-            $nameStore = "noImagem.png";
-        }
-
-        $db = new Testimonials;
-        $db->report = $request->report;
-        $db->name = $request->name;
-        $db->portfolios_id = $request->portfolio;
-        $db->patch = 'senai/'.$nameStore;
-        $db->save();
-
-        return view('dashboard',['x'=>"",'port'=> PortfolioController::getPort(), 'msg'=>"Item cadastrado com sucesso !"]);
+        //
     }
 
-    public function getTestimonialsAll()
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create(): Response
     {
-        return view('dashboard',['x'=>"list",'type'=>"testimonials", 'list'=> Testimonials::all(), 'port'=> PortfolioController::getPort()]);
+        //
     }
 
-    public function getTestimonials(Request $request)
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request): RedirectResponse
     {
-        return view('editTestimonials', ['portfolio'=>PortfolioController::getPort(), 'list'=> Testimonials::find($request->id)]);
+        //
     }
 
-    public function updateTestimonials(Request $request)
+    /**
+     * Display the specified resource.
+     */
+    public function show(Testimonials $testimonials): Response
     {
-        if ($request->hasFile('imagem')) {
-            $filenameWithExt = $request->file('imagem')->getClientOriginalName();
-            $fileName = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            $extension = $request->file('imagem')->getClientOriginalExtension();
-            $nameStore = $fileName."_". time() . "." . $extension;
-            $path = $request->file('imagem')->storeAs('public/senai', $nameStore);
-            $nameStore = 'senai/'. $nameStore;
-        }else {
-            $nameStore = $request->patch;
-        }
-
-
-        $db = Testimonials::find($request->id);
-        $db->report = $request->report;
-        $db->name = $request->name;
-        $db->portfolios_id = $request->portfolio;
-        $db->patch = 'senai/'.$nameStore;
-        $db->save();
-        return $this->getTestimonialsAll();
+        //
     }
 
-    public function deleteTestimonials(Request $request)
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Testimonials $testimonials): Response
     {
-        $db = Testimonials::find($request->id);
-        $db->delete(); 
-        return $this->getTestimonialsAll();
+        //
     }
 
-    public function searchTestimonials(Request $request)
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, Testimonials $testimonials): RedirectResponse
     {
-        $db = Testimonials::where('description', 'LIKE', '%'.$request->search.'%')
-               ->get();
-        return view('dashboard',['x'=>"list",'type'=>'testimonials','list'=> $db]);
+        //
     }
 
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Testimonials $testimonials): RedirectResponse
+    {
+        //
+    }
 }

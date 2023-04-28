@@ -13,9 +13,9 @@
       <div class="col-md-8">
         <div class="card-body">
           <h5 class="card-title">Portfolio</h5>
-          <form action="/update/portfolio" method="post" enctype="multipart/form-data">
+          <form action="{{url('portfolio/'.$list->id)}}" method="post" enctype="multipart/form-data">
             @csrf
-            <input type="hidden" name="id" value="{{$list->id}}">
+            @method('PUT')
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Titulo</label>
                 <input type="text" name="title" value="{{$list->title}}" class="form-control">

@@ -13,9 +13,9 @@
       <div class="col-md-8">
         <div class="card-body">
           <h5 class="card-title">Signature</h5>
-          <form action="/update/signature" method="post" enctype="multipart/form-data">
+          <form action="{{url('signature/'.$list->id)}}" method="post" enctype="multipart/form-data">
             @csrf
-            <input type="hidden" name="id" value="{{$list->id}}">
+            @method('PUT')
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Preço</label>
                 <input type="text" name="price" value="{{$list->price}}" class="form-control">

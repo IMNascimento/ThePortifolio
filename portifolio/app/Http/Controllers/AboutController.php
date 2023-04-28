@@ -2,14 +2,33 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\About;
-use App\Http\Controllers\PortfolioController;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class AboutController extends Controller
 {
-    //
-    public function create(Request $request)
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        return view('dashboard',['x'=>"list",'port'=>PortfolioController::getPort(),'type'=>"about", 'list'=> About::all()]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create(): Response
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
     {
         if ($request->hasFile('imagem')) {
             $filenameWithExt = $request->file('imagem')->getClientOriginalName();
@@ -20,26 +39,33 @@ class AboutController extends Controller
         }else {
             $nameStore = "noImagem.png";
         }
-
         $db = new About;
         $db->description = $request->description;
         $db->patch = 'senai/'.$nameStore;
         $db->save();
-
-        return view('dashboard',['x'=>"",'port'=>PortfolioController::getPort(), 'msg'=>"Item cadastrado com sucesso !"]);
+        return $this->show('Item cadastrado com sucesso !');
     }
 
-    public function getAboutAll()
+    /**
+     * Display the specified resource.
+     */
+    public function show($msg)
     {
-        return view('dashboard',['x'=>"list",'port'=>PortfolioController::getPort(),'type'=>"about", 'list'=> About::all()]);
+        return view('dashboard',['x'=>"list",'port'=>PortfolioController::getPort(),'type'=>"about", 'list'=> About::all(),'msg'=> $msg ]);
     }
 
-    public function getAbout(Request $request)
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit($id)
     {
-        return view('editAbout', ['list'=> About::find($request->id)]);
+        return view('editAbout', ['list'=> About::find($id)]);
     }
 
-    public function updateAbout(Request $request)
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, $id)
     {
         if ($request->hasFile('imagem')) {
             $filenameWithExt = $request->file('imagem')->getClientOriginalName();
@@ -51,20 +77,21 @@ class AboutController extends Controller
         }else {
             $nameStore = $request->patch;
         }
-
-
-        $db = About::find($request->id);
+        $db = About::find($id);
         $db->description = $request->description;
         $db->patch = $nameStore;
         $db->save();
-        return $this->getAboutAll();
+        return $this->show('Foi atualizado com sucesso!');
     }
 
-    public function deleteAbout(Request $request)
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy($id)
     {
-        $db = About::find($request->id);
+        $db = About::find($id);
         $db->delete(); 
-        return $this->getAboutAll();
+        return $this->show('Foi deletado com sucesso!');
     }
 
     public function searchAbout(Request $request)
@@ -73,6 +100,4 @@ class AboutController extends Controller
                ->get();
         return view('dashboard',['x'=>"list",'port'=>PortfolioController::getPort(), 'type'=>'about','list'=> $db]);
     }
-
-
 }

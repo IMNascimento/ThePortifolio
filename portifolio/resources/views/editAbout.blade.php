@@ -13,9 +13,9 @@
       <div class="col-md-8">
         <div class="card-body">
           <h5 class="card-title">About</h5>
-          <form action="/update/about" method="post" enctype="multipart/form-data">
+          <form action="{{url('about/'.$list->id)}}" method="post" enctype="multipart/form-data">
             @csrf
-            <input type="hidden" name="id" value="{{$list->id}}">
+            @method('PUT')
           <textarea name="description"  class="form-control" id="" cols="25" rows="4">{{$list->description}}</textarea>
           <div class="input-group mb-3">
             <div class="input-group-prepend">

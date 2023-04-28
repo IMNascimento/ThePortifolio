@@ -2,14 +2,33 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Service;
-use App\Http\Controllers\PortfolioController;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class ServiceController extends Controller
 {
-    // id titulo descrição icone   modo lista 
-    public function create(Request $request)
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        return view('dashboard',['x'=>"list",'port'=>PortfolioController::getPort(), 'type'=>"service", 'list'=> Service::all()]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create(): Response
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
     {
         if ($request->hasFile('imagem')) {
             $filenameWithExt = $request->file('imagem')->getClientOriginalName();
@@ -26,21 +45,29 @@ class ServiceController extends Controller
         $db->description = $request->description;
         $db->icon = 'senai/icon/'.$nameStore;
         $db->save();
-
-        return view('dashboard',['x'=>"",'port'=>PortfolioController::getPort(), 'msg'=>"Serviço cadastrado com sucesso !"]);
+        return $this->show("Serviço cadastrado com sucesso !");
     }
 
-    public function getServiceAll()
+    /**
+     * Display the specified resource.
+     */
+    public function show($msg)
     {
-        return view('dashboard',['x'=>"list",'port'=>PortfolioController::getPort(), 'type'=>"service", 'list'=> Service::all()]);
+        return view('dashboard',['x'=>"list",'port'=>PortfolioController::getPort(), 'type'=>"service", 'list'=> Service::all(), 'msg'=>$msg]);
     }
 
-    public function getService(Request $request)
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit($id)
     {
-        return view('editService', [ 'list'=> Service::find($request->id)]);
+        return view('editService', [ 'list'=> Service::find($id)]);
     }
 
-    public function updateService(Request $request)
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, $id)
     {
         if ($request->hasFile('imagem')) {
             $filenameWithExt = $request->file('imagem')->getClientOriginalName();
@@ -52,21 +79,22 @@ class ServiceController extends Controller
         }else {
             $nameStore = $request->patch;
         }
-
-
-        $db = Service::find($request->id);
+        $db = Service::find($id);
         $db->title = $request->title;
         $db->description = $request->description;
         $db->icon = $nameStore;
         $db->save();
-        return $this->getServiceAll();
+        return $this->show("Item atualizado com sucesso!");
     }
 
-    public function deleteService(Request $request)
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy($id)
     {
-        $db = Service::find($request->id);
+        $db = Service::find($id);
         $db->delete(); 
-        return $this->getServiceAll();
+        return $this->show("Item deletado com sucesso!");
     }
 
     public function searchService(Request $request)
@@ -75,5 +103,4 @@ class ServiceController extends Controller
                ->get();
         return view('dashboard',['x'=>"list",'port'=>PortfolioController::getPort(),'type'=>'service','list'=> $db]);
     }
-
 }

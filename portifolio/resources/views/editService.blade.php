@@ -13,9 +13,9 @@
       <div class="col-md-8">
         <div class="card-body">
           <h5 class="card-title">Service</h5>
-          <form action="/update/service" method="post" enctype="multipart/form-data">
+          <form action="{{url('service/'.$list->id)}}" method="post" enctype="multipart/form-data">
             @csrf
-            <input type="hidden" name="id" value="{{$list->id}}">
+            @method('PUT')
             <input type="text" name="title" class="form-control" value="{{$list->title}}">
           <textarea name="description" id="" class="form-control" cols="25" rows="4">{{$list->description}}</textarea>
           <div class="input-group mb-3">

@@ -2,13 +2,35 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Portfolio;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class PortfolioController extends Controller
 {
-    //
-    public function create(Request $request){
+    
+    static public function getPort(){
+        return Portfolio::all();
+    }
+    public function index()
+    {
+        return view('dashboard',['x'=>'list','port'=>self::getPort(), 'type'=>'portfolio', 'list'=>Portfolio::all()]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create(): Response
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
         if ($request->hasFile('imagem')) {
             $filenameWithExt = $request->file('imagem')->getClientOriginalName();
             $fileName = pathinfo($filenameWithExt, PATHINFO_FILENAME);
@@ -27,22 +49,30 @@ class PortfolioController extends Controller
         $d->type = $request->type;
         $d->save();
 
-        return view('dashboard', ['x'=>'','port'=>self::getPort(),'msg'=>"portifolio cadastrado com sucesso!"]);
-    }
-    static public function getPort(){
-        return Portfolio::all();
-    }
-    public function getPortfolioAll(){
-        $x = Portfolio::all();
-        return view('dashboard',['x'=>'list','port'=>$x, 'type'=>'portfolio', 'list'=>$x]);
+        return $this->show("portifolio cadastrado com sucesso!");
     }
 
-    public function getPortfolio(Request $request){
-        $z = Portfolio::find($request->id);
-        return view('editPortfolio', ['list'=>$z]);
+    /**
+     * Display the specified resource.
+     */
+    public function show($msg)
+    {
+        return view('dashboard',['x'=>'list','port'=>self::getPort(), 'type'=>'portfolio', 'list'=>Portfolio::all(), 'msg'=>$msg]);
     }
 
-    public function updatePortfolio(Request $request){
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit($id)
+    {
+        return view('editPortfolio', ['list'=>Portfolio::find($id)]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, $id)
+    {
         if ($request->hasFile('imagem')) {
             $filenameWithExt = $request->file('imagem')->getClientOriginalName();
             $fileName = pathinfo($filenameWithExt, PATHINFO_FILENAME);
@@ -54,23 +84,25 @@ class PortfolioController extends Controller
             $nameStore = $request->patch;
         }
 
-        $x= Portfolio::find($request->id); 
+        $x= Portfolio::find($id); 
         $x->title = $request->title;
         $x->description = $request->description;
         $x->patch = $nameStore;
         $x->url = $request->url;
         $x->type = $request->type;
         $x->save();
-        return $this->getPortfolioAll();
-
+        return $this->show("Item atualizado com sucesso!");
     }
 
-    public function deletePortfolio(Request $request){
-        $fg = Portfolio::find($request->id);
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy($id)
+    {
+        $fg = Portfolio::find($id);
         $fg->delete();
-        return $this->getPortfolioAll();
+        return $this->show("Item deletado com sucesso!");
     }
-
     public function searchPortfolio(Request $request){
         $xc = Portfolio::where('title', 'LIKE', '%'.$request->search.'%')->get();
         return view('dashboard', ['x'=>'list','port'=>self::getPort(), 'type'=>'portfolio', 'list'=> $xc]);

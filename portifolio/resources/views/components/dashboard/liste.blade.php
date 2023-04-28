@@ -16,14 +16,11 @@
         <div class="card-body">
           <h5 class="card-title">{{$service}}</h5>
           <p class="card-text">{{$key->description}}</p>
-          <form action="/editar/{{$service}}" method="post">
+          <a href="{{url(''.$service.'/'.$key->id.'/edit')}}" class="btn btn-warning">Editar</a>
+          <form action="{{url(''.$service.'/'.$key->id.'')}}" method="post">
+            @method('DELETE')
             @csrf
-                <input type="hidden" name="id" value="{{$key->id}}">
-                <button type="submit" class="btn btn-warning">Editar</button>
-          </form>
-          <form action="/deletar/{{$service}}" method="post">
-            @csrf
-                <input type="hidden" name="id" value="{{$key->id}}">
+            
                 <button type="submit" class="btn btn-danger">Remover</button>
           </form>
         </div>

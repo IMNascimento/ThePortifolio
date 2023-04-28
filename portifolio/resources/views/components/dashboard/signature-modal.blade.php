@@ -9,7 +9,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="/add/signature" method="post" enctype="multipart/form-data">
+          <form action="/signature/" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
               <label for="exampleFormControlSelect1">Tipo</label>

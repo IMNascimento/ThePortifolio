@@ -11,7 +11,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="/add/testimonials" method="post" enctype="multipart/form-data">
+          <form action="/testimonials/" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Nome</label>
